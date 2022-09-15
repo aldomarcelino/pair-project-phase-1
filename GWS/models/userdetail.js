@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       phoneNumber: DataTypes.STRING,
       birthDate: DataTypes.DATE,
+      type: DataTypes.STRING,
       balance: DataTypes.INTEGER,
       pickUpTime: DataTypes.DATE,
       pickUpFrom: DataTypes.STRING,

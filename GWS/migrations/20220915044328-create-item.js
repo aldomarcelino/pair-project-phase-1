@@ -14,10 +14,16 @@ module.exports = {
       description: {
         type: Sequelize.TEXT,
       },
+      imageUrl: {
+        type: Sequelize.STRING,
+      },
       price: {
         type: Sequelize.INTEGER,
       },
       quantity: {
+        type: Sequelize.INTEGER,
+      },
+      distance: {
         type: Sequelize.INTEGER,
       },
       CategoryId: {

@@ -19,5 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Vehicle",
     }
   );
+  Vehicle.beforeCreate((data) => {
+    data.registrationNumber = `${data.type[0]}-${new Date().getTime()}`;
+    data.type === "car" ? (data.basePrice = 3_000) : (data.basePrice = 1_800);
+  });
   return Vehicle;
 };

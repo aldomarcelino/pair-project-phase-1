@@ -14,6 +14,9 @@ module.exports = {
       birthDate: {
         type: Sequelize.DATE,
       },
+      type: {
+        type: Sequelize.STRING,
+      },
       balance: {
         type: Sequelize.INTEGER,
       },

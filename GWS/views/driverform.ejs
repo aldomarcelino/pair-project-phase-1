@@ -8,15 +8,16 @@
 </head>
 <body>
   <h1>Login</h1>
-  <form action="/signin/driver" method="post">
+  <form action="/signup/driver" method="post">
     Phone Number:<input type="text" name="phoneNumber"><br><br>
     Birth Date:<input type="date" name="birthDate"><br><br>
+    Lisence: <input type="text" name="lisence"><br><br>
     Vehicle: <select name="vType">
       <option value="" selected disabled>--Choose One--</option>
-      <option value="bike">Bike</option>
+      <option value="motorbike">Motorbike</option>
       <option value="car">Car</option>
     </select><br><br>
-    Police Number: <input type="text" name="policeNumber">
+    Police Number: <input type="text" name="policeNum">
     <input type="Submit" value="Submit">
   </form>
 </body>

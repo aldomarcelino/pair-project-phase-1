@@ -22,6 +22,7 @@ class Controller {
     User.create({ firstName, lastName, email, password, role })
       .then((user) => {
         req.session.cosId = user.id;
+        req.session.type = user.role;
         if (user.role === "costumer") res.render("costumerform");
         else if (user.role === "driver") res.render("driverform");
         else res.redirect("/signin");
@@ -31,22 +32,16 @@ class Controller {
 
   static postCostumer(req, res) {
     const { phoneNumber, birthDate } = req.body;
-    UserDetail.create({ phoneNumber, birthDate, UserId: req.session.cosId })
+    UserDetail.create({ phoneNumber, birthDate, UserId: req.session.cosId,type: req.session.type })
       .then(() => res.redirect("/"))
       .catch((err) => res.send(err));
   }
 
   static postDriver(req, res) {
-    const { phoneNumber, birthDate } = req.body;
-    UserDetail.create({
-      phoneNumber,
-      birthDate,
-      UserId: req.params.id,
-      type: req.params.type,
-    })
-      .then(() => {
-        res.redirect("/");
-      })
+    const { phoneNumber, birthDate, vType, policeNum, lisence } = req.body;
+    UserDetail.create({ phoneNumber, birthDate, lisence, UserId: req.session.cosId, type: req.session.type })
+      .then((data) => { return Vehicle.create({ UserDetailId: data.id, type: vType, policeNum })})
+      .then(() => res.redirect('/'))
       .catch((err) => res.send(err));
   }
 
