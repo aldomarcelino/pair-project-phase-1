@@ -8,9 +8,15 @@
 </head>
 <body>
   <h1>Login</h1>
-  <form action="/signin/costumer" method="post">
+  <form action="/signin/driver" method="post">
     Phone Number:<input type="text" name="phoneNumber"><br><br>
-    Birth Date:<input type="date" name="birthDate" ><br>
+    Birth Date:<input type="date" name="birthDate"><br><br>
+    Vehicle: <select name="vType">
+      <option value="" selected disabled>--Choose One--</option>
+      <option value="bike">Bike</option>
+      <option value="car">Car</option>
+    </select><br><br>
+    Police Number: <input type="text" name="policeNumber">
     <input type="Submit" value="Submit">
   </form>
 </body>

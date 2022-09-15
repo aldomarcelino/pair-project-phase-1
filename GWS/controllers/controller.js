@@ -20,7 +20,33 @@ class Controller {
   static postSignUp(req, res) {
     const { firstName, lastName, email, password, role } = req.body;
     User.create({ firstName, lastName, email, password, role })
-      .then(() => res.redirect("/signin"))
+      .then((user) => {
+        req.session.cosId = user.id;
+        if (user.role === "costumer") res.render("costumerform");
+        else if (user.role === "driver") res.render("driverform");
+        else res.redirect("/signin");
+      })
+      .catch((err) => res.send(err));
+  }
+
+  static postCostumer(req, res) {
+    const { phoneNumber, birthDate } = req.body;
+    UserDetail.create({ phoneNumber, birthDate, UserId: req.session.cosId })
+      .then(() => res.redirect("/"))
+      .catch((err) => res.send(err));
+  }
+
+  static postDriver(req, res) {
+    const { phoneNumber, birthDate } = req.body;
+    UserDetail.create({
+      phoneNumber,
+      birthDate,
+      UserId: req.params.id,
+      type: req.params.type,
+    })
+      .then(() => {
+        res.redirect("/");
+      })
       .catch((err) => res.send(err));
   }
 

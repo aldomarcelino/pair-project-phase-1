@@ -7,6 +7,10 @@ router.get("/signup", Controller.signUpForm);
 router.post("/signup", Controller.postSignUp);
 router.get("/signin", Controller.signInForm);
 router.post("/signin", Controller.postSignIn);
+// router.get("/signin/costumer", Controller.costumerForm);
+router.post("/signin/costumer", Controller.postCostumer);
+// router.get("/signin/driver", Controller.driverForm);
+router.post("/signin/driver", Controller.postDriver);
 router.get("/signout", Controller.signOut);
 router.use((req, res, next) => {
   if (!req.session.userId) {

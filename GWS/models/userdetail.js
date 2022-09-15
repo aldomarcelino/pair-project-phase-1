@@ -10,22 +10,31 @@ module.exports = (sequelize, DataTypes) => {
   }
   UserDetail.init(
     {
+      phoneNumber: DataTypes.STRING,
+      birthDate: DataTypes.DATE,
       balance: DataTypes.INTEGER,
       pickUpTime: DataTypes.DATE,
       pickUpFrom: DataTypes.STRING,
       drop: DataTypes.STRING,
       rideType: DataTypes.STRING,
       rideRate: DataTypes.STRING,
-      rideStatus: DataTypes.BOOLEAN,
       lisence: DataTypes.STRING,
       earning: DataTypes.INTEGER,
       totalRides: DataTypes.INTEGER,
-      rideDetails: DataTypes.STRING,
     },
     {
       sequelize,
       modelName: "UserDetail",
     }
   );
+  UserDetail.beforeCreate((data) => {
+    if (data.type === "costumer") {
+      data.balance = 0;
+    } else {
+      data.rideRate = 0;
+      data.earning = 0;
+      data.totalRides = 0;
+    }
+  });
   return UserDetail;
 };

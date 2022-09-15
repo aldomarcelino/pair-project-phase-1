@@ -24,9 +24,6 @@ module.exports = {
       registrationNumber: {
         type: Sequelize.STRING,
       },
-      rate: {
-        type: Sequelize.INTEGER,
-      },
       basePrice: {
         type: Sequelize.INTEGER,
       },
