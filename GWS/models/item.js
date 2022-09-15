@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class Item extends Model {
     static associate(models) {
       Item.belongsTo(models.Category);
+      Item.hasMany(models.Payment);
     }
   }
   Item.init(
