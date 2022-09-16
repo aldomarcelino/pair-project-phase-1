@@ -18,9 +18,6 @@ module.exports = {
           key: "id",
         },
       },
-      type: {
-        type: Sequelize.STRING,
-      },
       UserDetailId: {
         type: Sequelize.INTEGER,
         references: {

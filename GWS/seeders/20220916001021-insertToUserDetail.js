@@ -3,16 +3,16 @@ const fs = require('fs');
 
 module.exports = {
   up(queryInterface, Sequelize) {
-    let data = JSON.parse(fs.readFileSync('./data/users.json', 'utf-8'))
+    let data = JSON.parse(fs.readFileSync('./data/driver.json', 'utf-8'))
       .map(e => {
         e.createdAt = new Date();
         e.updatedAt = new Date();
         return e;
       });
-    return queryInterface.bulkInsert("Users", data, {});
+    return queryInterface.bulkInsert("UserDetails", data, {});
   },
 
   down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete("Users", null, {});
+    return queryInterface.bulkDelete("UserDetails", null, {});
   },
 };

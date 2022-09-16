@@ -1,0 +1,51 @@
+[
+  {
+    "UserDetailId": 1,
+    "type": "motorbike",
+    "policeNum": "473 01",
+    "registrationNumber": "54569-2509",
+    "basePrice": 3000
+  },
+  {
+    "UserDetailId": 2,
+    "type": "car",
+    "policeNum": "3230",
+    "registrationNumber": "54868-6183",
+    "basePrice": 3000
+  },
+  {
+    "UserDetailId": 3,
+    "type": "motorbike",
+    "policeNum": "871 60",
+    "registrationNumber": "0363-1019",
+    "basePrice": 3000
+  },
+  {
+    "UserDetailId": 4,
+    "type": "motorbike",
+    "policeNum": "BB5379",
+    "registrationNumber": "59734-274",
+    "basePrice": 2000
+  },
+  {
+    "UserDetailId": 5,
+    "type": "car",
+    "policeNum": "C53129rwe",
+    "registrationNumber": "41163-478",
+    "basePrice": 3000
+  },
+  {
+    "UserDetailId": 6,
+    "type": "motorbike",
+    "policeNum": "B53129rhs",
+    "registrationNumber": "41520-477",
+    "basePrice": 2000
+  },
+  {
+    "UserDetailId": 7,
+    "type": "motorbike",
+    "policeNum": "H53124u930e",
+    "registrationNumber": "0186-0452",
+    "basePrice": 2000
+  }
+]

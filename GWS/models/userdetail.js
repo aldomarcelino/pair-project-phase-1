@@ -2,6 +2,10 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class UserDetail extends Model {
+    get pickUpTimes() {
+      return new Date();
+    }
+
     static associate(models) {
       UserDetail.belongsTo(models.User);
       UserDetail.hasMany(models.Payment);
@@ -24,18 +28,38 @@ module.exports = (sequelize, DataTypes) => {
       totalRides: DataTypes.INTEGER,
     },
     {
+      hooks: {
+        beforeCreate: (data) => {
+          if (data.type === "costumer") {
+            data.balance = 0;
+          } else {
+            data.rideRate = 0;
+            data.earning = 0;
+            data.totalRides = 0;
+          }
+        },
+        beforeUpdate: (data) => {
+          data.pickUpTime = data.pickUpTimes;
+        },
+      },
       sequelize,
       modelName: "UserDetail",
     }
   );
-  UserDetail.beforeCreate((data) => {
-    if (data.type === "costumer") {
-      data.balance = 0;
-    } else {
-      data.rideRate = 0;
-      data.earning = 0;
-      data.totalRides = 0;
-    }
-  });
+  // UserDetail.beforeCreate((data) => {
+  //   if (data.type === "costumer") {
+  //     data.balance = 0;
+  //   } else {
+  //     data.rideRate = 0;
+  //     data.earning = 0;
+  //     data.totalRides = 0;
+  //   }
+  // });
+
+  // UserDetail.beforeUpdate((data) => {
+  //   console.log("masuk sini");
+  //   data.pickUpTime = data.pickUpTimes;
+  //   console.log(data.pickUpTimes);
+  // });
   return UserDetail;
 };

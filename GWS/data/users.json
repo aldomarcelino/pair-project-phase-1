@@ -1,0 +1,58 @@
+[
+  {
+    "firstName": "Aldo",
+    "lastName": "Marcelino",
+    "email": "aldomarcelino@gmail.com",
+    "password": "$2a$09$JdRms68GOiafXO3ymn2GiOvGNCpVVioLBsXsqegtDb6JrRs4g7aTW",
+    "role": "admin"
+  },
+  {
+    "firstName": "Cleon",
+    "lastName": "Pelfer",
+    "email": "cpelfer0@zdnet.com",
+    "password": "xAswlBRSlH",
+    "role": "driver"
+  },
+  {
+    "firstName": "Lynnea",
+    "lastName": "Likly",
+    "email": "llikly1@who.int",
+    "password": "K250bi8p7DC",
+    "role": "driver"
+  },
+  {
+    "firstName": "Peyton",
+    "lastName": "Simakov",
+    "email": "psimakov2@berkeley.edu",
+    "password": "sqH0y192s28",
+    "role": "driver"
+  },
+  {
+    "firstName": "Aryn",
+    "lastName": "Tarbin",
+    "email": "atarbin3@xinhuanet.com",
+    "password": "17iBjuTRa1lC",
+    "role": "driver"
+  },
+  {
+    "firstName": "Sunshine",
+    "lastName": "Daymont",
+    "email": "sdaymont4@fc2.com",
+    "password": "67CIomQL9k",
+    "role": "driver"
+  },
+  {
+    "firstName": "Jana",
+    "lastName": "Badcock",
+    "email": "jbadcock5@ucla.edu",
+    "password": "YiXn2iBR6T",
+    "role": "driver"
+  },
+  {
+    "firstName": "Elihu",
+    "lastName": "Lissimore",
+    "email": "elissimore6@behance.net",
+    "password": "uPW1Myz",
+    "role": "driver"
+  }
+]

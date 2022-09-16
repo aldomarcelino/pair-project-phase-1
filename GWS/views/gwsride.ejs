@@ -8,5 +8,15 @@
 </head>
 <body>
   <h1>Ride</h1>
+  <form action="/gwsride" method="post">
+    Your Location : <input type="text" name="pickUpFrom">
+    Where to go : <input type="text" name="drop">
+    Vehicle: <select name="rideType">
+      <option value="" selected disabled>--Choose One--</option>
+      <option value="motorbike">Motorbike</option>
+      <option value="car">Car</option>
+    </select><br><br>
+    <input type="submit" value="submit">
+  </form>
 </body>
 </html>

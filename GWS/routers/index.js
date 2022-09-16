@@ -7,11 +7,11 @@ router.get("/signup", Controller.signUpForm);
 router.post("/signup", Controller.postSignUp);
 router.get("/signin", Controller.signInForm);
 router.post("/signin", Controller.postSignIn);
-// router.get("/signin/costumer", Controller.costumerForm);
 router.post("/signup/costumer", Controller.postCostumer);
-// router.get("/signin/driver", Controller.driverForm);
 router.post("/signup/driver", Controller.postDriver);
 router.get("/signout", Controller.signOut);
+router.get("/listofitem", Controller.showAllItem);
+router.get("/listofuser", Controller.showAllUser);
 router.use((req, res, next) => {
   if (!req.session.userId) {
     const err = "*Please sign in first";
@@ -19,6 +19,7 @@ router.use((req, res, next) => {
   } else next();
 });
 router.get("/gwsride", Controller.gwsRide);
+router.post("/gwsride", Controller.postGwsRide);
 router.get("/gwsfood", Controller.gwsFood);
 
 // router.get("/listofuser", Controller.postSignIn);
