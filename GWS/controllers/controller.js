@@ -25,8 +25,8 @@ class Controller {
         req.session.cosId = user.id;
         req.session.type = user.role;
         if (user.role === "costumer") res.render("costumerform");
-        else if (user.role === "driver") res.render("driverform");
-        else res.redirect("/signin");
+        else res.render("driverform");
+        // else res.redirect("/signin");
       })
       .catch((err) => res.send(err));
   }
@@ -39,7 +39,7 @@ class Controller {
       UserId: req.session.cosId,
       type: req.session.type,
     })
-      .then(() => res.redirect("/"))
+      .then(() => res.redirect("/signin"))
       .catch((err) => res.send(err));
   }
 
@@ -59,7 +59,7 @@ class Controller {
           policeNum,
         });
       })
-      .then(() => res.redirect("/"))
+      .then(() => res.redirect("/signin"))
       .catch((err) => res.send(err));
   }
 
@@ -134,8 +134,8 @@ class Controller {
           ],
         });
       })
-      .then((data) => res.send(data))
-      // .then((data) => res.render("succes", { data }))
+      // .then((data) => res.send(data))
+      .then((data) => res.render("succes", { data }))
       .catch((err) => res.send(err));
   }
 
