@@ -32,6 +32,7 @@ module.exports = {
           model: "Categories",
           key: "id",
         },
+        onDelete: "cascade",
       },
       createdAt: {
         allowNull: false,

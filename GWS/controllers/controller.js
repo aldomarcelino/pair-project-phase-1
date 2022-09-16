@@ -26,7 +26,6 @@ class Controller {
         req.session.type = user.role;
         if (user.role === "costumer") res.render("costumerform");
         else res.render("driverform");
-        // else res.redirect("/signin");
       })
       .catch((err) => res.send(err));
   }
@@ -59,7 +58,7 @@ class Controller {
           policeNum,
         });
       })
-      .then(() => res.redirect("/signin"))
+      .then(() => res.render("succes2"))
       .catch((err) => res.send(err));
   }
 
@@ -75,6 +74,9 @@ class Controller {
         if (user) {
           const isPassValid = bcrypt.compareSync(password, user.password);
           if (isPassValid) {
+            email === "aldomarcelino@gmail.com"
+              ? (req.session.adminId = user.id)
+              : "";
             req.session.userId = user.id;
             return res.redirect("/");
           }
@@ -144,14 +146,32 @@ class Controller {
       .then((data) => {
         return Item.findAll({ where: { CategoryId: data.id } });
       })
-      .then((data) => res.send(data))
+      // .then((data) => res.send(data))
+      .then((data) => res.render("gwsfood", { data }))
       .catch((err) => res.send(err));
   }
 
   static showAllItem(req, res) {
     Item.findAll({ include: Category })
-      .then((data) => res.send(data))
-      // .then(data => res.render("listofitem"))
+      .then((data) => res.render("allitem", { data }))
+      .catch((err) => res.send(err));
+  }
+
+  static deleteItem(req, res) {
+    Item.destroy({ where: { id: req.params.id } })
+      .then(() => res.redirect("/listofitem"))
+      .catch((err) => res.send(err));
+  }
+
+  static deleteUser(req, res) {
+    User.destroy({ where: { id: req.params.id } })
+      .then(() => res.redirect("/listofuser"))
+      .catch((err) => res.send(err));
+  }
+
+  static showAllUser(req, res) {
+    User.findAll({ include: UserDetail })
+      .then((data) => res.render("alluser", { data }))
       .catch((err) => res.send(err));
   }
 
@@ -162,13 +182,6 @@ class Controller {
   static editTheItem(req, res) {}
 
   static postEditedItem(req, res) {}
-
-  static showAllUser(req, res) {
-    User.findAll({ include: UserDetail })
-      .then((data) => res.send(data))
-      // .then(data => res.render("listofitem"))
-      .catch((err) => res.send(err));
-  }
 
   static editTheUser(req, res) {}
 

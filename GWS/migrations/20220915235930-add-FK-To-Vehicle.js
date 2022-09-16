@@ -7,6 +7,7 @@ module.exports = {
       references: {
         model: "UserDetails",
         key: "id",
+        onDelete: "cascade",
       },
     });
   },

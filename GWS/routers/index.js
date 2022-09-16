@@ -10,8 +10,6 @@ router.post("/signin", Controller.postSignIn);
 router.post("/signup/costumer", Controller.postCostumer);
 router.post("/signup/driver", Controller.postDriver);
 router.get("/signout", Controller.signOut);
-router.get("/listofitem", Controller.showAllItem);
-router.get("/listofuser", Controller.showAllUser);
 router.use((req, res, next) => {
   if (!req.session.userId) {
     const err = "*Please sign in first";
@@ -22,7 +20,17 @@ router.get("/gwsride", Controller.gwsRide);
 router.post("/gwsride", Controller.postGwsRide);
 router.get("/gwsfood", Controller.gwsFood);
 
-// router.get("/listofuser", Controller.postSignIn);
-// router.get("/listofuser/detail/:id", Controller.postSignIn);
+router.use((req, res, next) => {
+  if (!req.session.adminId) {
+    const err = "*Access not allowed";
+    res.redirect(`/?error=${err}`);
+  } else next();
+});
+
+router.get("/listofitem", Controller.showAllItem);
+router.get("/listofuser", Controller.showAllUser);
+router.get("/listofitem/:id/delete", Controller.deleteItem);
+router.get("/listofuser/:id/delete", Controller.deleteUser);
+
 
 module.exports = router;

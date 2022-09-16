@@ -7,6 +7,30 @@
   <title>GWS</title>
 </head>
 <body>
-  <h1>list of item</h1>
+  <h1>list of Item</h1>
+  <table border="2" style="width: 60%;">
+    <tr>
+      <th> Product </th>
+      <th> Description </th>
+      <th> Image </th>
+      <th> Price </th>
+      <th> Quantity </th>
+      <th> Distance </th>
+    </tr>
+    <% data.forEach(e => { %>
+      <tr>
+        <td><%= e.name%></td>  
+        <td><%= e.description %></td>  
+        <td><%= e.imgUrl %></td>  
+        <td><%= e.price %></td>
+        <td><%= e.quantity %></td>
+        <td><%= e.distance %></td>
+        <td>
+          <a href="/listofitem/<%= e.id %>/delete"><button>Delete</button></a>
+        </td>  
+      </tr>      
+      <%}) %> 
+
+  </table>
 </body>
 </html>

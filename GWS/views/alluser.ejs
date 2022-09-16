@@ -8,5 +8,26 @@
 </head>
 <body>
   <h1>list of user</h1>
+  <table border="2" style="width: 60%;">
+    <tr>
+      <th> Full Name </th>
+      <th> User Name </th>
+      <th> Password </th>
+      <th> Role </th>
+      <th> Action </th>
+    </tr>
+    <% data.forEach(e => { %>
+      <tr>
+        <td><%= e.firstName %> <%= e.lastName %></td>  
+        <td><%= e.email %></td>  
+        <td><%= e.password %></td>  
+        <td><%= e.role %></td>
+        <td>
+          <a href="/listofuser/<%= e.id %>/delete"><button>Delete</button></a>
+        </td>  
+      </tr>      
+      <%}) %> 
+
+  </table>
 </body>
 </html>

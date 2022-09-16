@@ -80,13 +80,13 @@
 
     .btn-delete {
       color: white;
-      background-color: rgb(243, 56, 56);
+      background-color: greenyellow;
     }
   </style>
 </head>
 
 <body>
-  <div class="header">
+  <!-- <div class="header">
     <h1>Game Collection</h1>
     <div>
       <div>
@@ -96,24 +96,24 @@
       </div>
       <a href="/add" class="btn">Add Game</a>
     </div>
-  </div>
+  </div> -->
   <h1>GWS FOOD</h1>
   <div class="content-container">
     <% data.forEach((e)=> { %>
       <div class="card">
-        <img src="<%= e.img %>">
+        <img src="<%= e.imageUrl %>">
         <div>
           <h3>
-            <%= e.title %>
+            <%= e.name %>
           </h3>
           <h3>
-            <%= e.rupiah %>
+            <%= e.price %>
           </h3>
         </div>
         <h4>
-          <%= e.DeveloperId%>
+          <%= e.distance%> Km
         </h4>
-        <a class="btn btn-delete" href="/delete/<%= e.id %>">Delete</a>
+        <a class="btn btn-delete" href="#">Buy</a>
       </div>
       <% }); %>
   </div>
