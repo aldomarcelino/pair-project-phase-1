@@ -1,3 +1,3 @@
-# pair-project-phase-2
+# pair-project-phase-1
 
 a simple website using node.js, express, sequelize 
